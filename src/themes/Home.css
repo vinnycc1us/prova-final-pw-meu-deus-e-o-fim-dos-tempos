@@ -1,0 +1,256 @@
+/* src/components/Home.css */
+
+/* Sr. Karan, abaixo está o CSS completo revisado, aplicando boas práticas de UI e UX, 
+   melhorando cores, espaçamentos, tipografia e foco em contraste e acessibilidade.
+   Mantivemos a estrutura original, mas ajustamos cores, tamanhos, espaçamentos e estilos
+   para uma experiência mais agradável. */
+
+/* Variáveis de Cores Melhoradas para Maior Contraste e Harmonia */
+:root {
+    --current-line: #f9f9f9;
+    --purple: #5e2ea7; /* Ajuste de tonalidade para melhor contraste */
+    --light-purple: #7f4fd0; 
+    --red: #c0392b; 
+    --light-red: #e74c3c; 
+    --foreground: #ffffff;
+    --background: #ffffff;
+    --border-color: #dcdcdc;
+    --green: #1e8449; 
+    --light-green: #27ae60; 
+    --blue: #21618c; 
+    --light-blue: #3498db; 
+    --dark-gray: #2c3e50;
+    --light-gray: #7f4fd0;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    /* background-color: var(--light-gray); */
+    background-image: url('../assets/3a.png'); /* Caminho para a imagem na pasta public */
+    margin: 0;
+    font-family: var(--font-family);
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--current-line);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+}
+
+.header {
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: var(--purple);
+    margin: 0;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.logout-button {
+    padding: 0.5rem 1rem;
+    background-color: var(--purple);
+    color: var(--foreground);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    min-width: 100px;
+    text-align: center;
+}
+
+.logout-button:hover {
+    background-color: var(--light-purple);
+    transform: translateY(-2px);
+}
+
+.logout-button:focus {
+    outline: 2px solid var(--purple);
+    outline-offset: 2px;
+}
+
+.error-message {
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #ffe6e6;
+    border: 1px solid var(--red);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.add-item-form,
+.edit-item-form {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.add-item-form input,
+.edit-item-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--background);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.add-item-form input:focus,
+.edit-item-form input:focus {
+    border-color: var(--purple);
+    outline: none;
+    box-shadow: 0 0 5px rgba(94, 46, 167, 0.5);
+}
+
+.add-item-form button,
+.edit-item-form button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-item-form button {
+    color: var(--foreground);
+}
+
+.add-item-form button:hover {
+    background-color: var(--light-gray);
+    transform: translateY(-2px);
+}
+
+.edit-item-form button[type="submit"] {
+    background-color: var(--purple);
+    color: var(--foreground);
+}
+
+.edit-item-form button[type="submit"]:hover {
+    background-color: var(--light-purple);
+    transform: translateY(-2px);
+}
+
+.edit-item-form button[type="button"] {
+    background-color: var(--red);
+    color: var(--foreground);
+}
+
+.edit-item-form button[type="button"]:hover {
+    background-color: var(--light-red);
+    transform: translateY(-2px);
+}
+
+.items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    background-color: var(--background);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    background-color: #1d1d20;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.item span {
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.item-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-button {
+    color: var(--blue);
+}
+
+.edit-button:hover {
+    color: var(--light-blue);
+    transform: scale(1.1);
+}
+
+.delete-button {
+    color: var(--red);
+}
+
+.delete-button:hover {
+    color: var(--light-red);
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .logout-button {
+        width: 100%;
+    }
+
+    .add-item-form,
+    .edit-item-form {
+        flex-direction: column;
+    }
+
+    .add-item-form input,
+    .edit-item-form input,
+    .add-item-form button,
+    .edit-item-form button {
+        width: 100%;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .item-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
